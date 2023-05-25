@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  main {
+    @apply mx-auto flex max-w-[35rem] flex-col gap-28 px-6 pb-32
+           md:max-w-[63.5rem] md:gap-[6rem] md:px-10 md:pb-24
+           lg:max-w-[90rem] lg:gap-[10.5rem] lg:px-[10.3125rem] lg:pb-[12.5rem];
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-8 py-4 text-xs font-bold uppercase tracking-widest;
+  }
+}
