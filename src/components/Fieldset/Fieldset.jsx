@@ -18,7 +18,7 @@ const Fieldset = ({ legend, fields, register, errors }) => {
               <div className="mb-2 flex justify-between text-xs font-bold leading-4 tracking-[-0.013rem]">
                 <label
                   className={errors[name] ? "text-persian-red" : ""}
-                  htmlFor={name}
+                  htmlFor={id}
                 >
                   {label}
                 </label>
