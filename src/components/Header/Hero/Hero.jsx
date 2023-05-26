@@ -5,7 +5,7 @@ const Hero = () => (
   <div
     className="mx-auto max-w-[23.4375rem] bg-main-hero-sm bg-cover bg-bottom bg-no-repeat py-28 
                  md:max-w-[48rem] md:bg-main-hero-md md:pb-[10.4375rem] md:pt-[7.875rem]
-                   lg:max-w-[69.375rem] lg:bg-main-hero-lg lg:bg-left"
+                   lg:max-w-[90rem] lg:bg-main-hero-lg lg:bg-bottom lg:px-[10rem] lg:pt-[7.5rem]"
   >
     <div
       className="mx-auto flex max-w-[20.5rem] flex-col items-center text-center text-white

@@ -39,7 +39,7 @@ const Navbar = () => {
         <nav
           className="mx-auto px-[1.4rem] py-[2rem] text-white
                        md:max-w-[58.5rem] md:px-[2.5rem]
-                         lg:max-w-[69.375rem] lg:px-0"
+                         lg:max-w-[69.375rem] lg:px-0 lg:py-[2.1875rem]"
         >
           <ul className="flex list-none items-center justify-between">
             <li className="lg:hidden">
