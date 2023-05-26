@@ -23,12 +23,12 @@ const Navbar = () => {
     <>
       {menuOpened && (
         <aside
-          className="fixed top-[5.2rem] z-50 h-full w-full bg-black bg-opacity-40
+          className="fixed top-[5.625rem] z-50 h-full w-full bg-black bg-opacity-40
                        lg:hidden"
         >
           <div
             role="dialog"
-            className="mx-auto rounded-b-lg bg-white px-7 pb-[1.9375rem] pt-24
+            className="mx-auto rounded-b-lg bg-white px-7 pb-[1.9375rem] pt-20
                          md:px-10 md:pb-[4.1875rem] md:pt-16"
           >
             <Categories />
