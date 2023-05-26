@@ -20,7 +20,7 @@ Users should be able to:
 * See an order confirmation modal after checking out with an order summary
 
 ## 🔗 Links
-[Live Site](https://audiophile-ecommerce-website-9t773w6qa-austinforgie.vercel.app)
+[Live Site](https://audiophile-ecommerce-website-austinforgie.vercel.app/)
 
 ## ⚙️ Setup
 
