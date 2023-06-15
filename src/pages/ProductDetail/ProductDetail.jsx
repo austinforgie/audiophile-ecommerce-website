@@ -59,9 +59,9 @@ const ProductDetail = () => {
 
   const recommendedProducts = targetProduct.others.map((product) => {
     const images = { ...product.image };
-    Object.keys(images).forEach(
-      (screenType) => (images[screenType] = images[screenType].slice(1))
-    );
+    Object.keys(images).forEach((screenType) => {
+      images[screenType] = images[screenType].slice(1);
+    });
 
     return (
       <Product
@@ -137,7 +137,9 @@ const ProductDetail = () => {
                 </div>
               )}
               <h1
-                className={`mb-5 ${!targetProduct.new ? "mb-6 mt-9" : "mt-4"} max-w-[12.9rem] text-[1.75rem] font-bold uppercase tracking-[0.0625rem]
+                className={`mb-5 ${
+                  !targetProduct.new ? "mb-6 mt-9" : "mt-4"
+                } max-w-[12.9rem] text-[1.75rem] font-bold uppercase tracking-[0.0625rem]
                               md:mb-6 md:mt-0 md:max-w-[12rem]
                                 lg:mb-8 lg:mt-4 lg:max-w-[28.4375rem] lg:text-[2.5rem] lg:leading-[2.75rem] lg:tracking-[0.089rem]`}
               >
