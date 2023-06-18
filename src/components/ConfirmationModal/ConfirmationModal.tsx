@@ -4,7 +4,11 @@ import { useCart } from "../../context/CartContext";
 import { CartItem } from "../CartModal";
 import { Total } from "../Total";
 
-const ConfirmationModal = ({ grandTotal }) => {
+interface ConfirmationModalProps {
+  grandTotal: number;
+}
+
+const ConfirmationModal = ({ grandTotal }: ConfirmationModalProps) => {
   const { cartItems, getCartQuantity, getItemQuantity, clearCart } = useCart();
   const FIRST_CART_ITEM = cartItems.slice(0, 1).shift();
   const REMAINING_ITEMS =

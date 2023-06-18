@@ -5,6 +5,14 @@ import { CartItem } from "./CartItem";
 import { nanoid } from "nanoid";
 import { FORMAT_CURRENCY } from "../../utilities";
 
+export interface Item {
+  id: number;
+  slug: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
 const CartModal = () => {
   const {
     clearCart,
@@ -15,7 +23,7 @@ const CartModal = () => {
     toggleCart,
   } = useCart();
 
-  const cartItemElements = cartItems.map((item) => (
+  const cartItemElements = cartItems.map((item: Item) => (
     <CartItem key={nanoid()} item={item} options={{ counter: true }} />
   ));
 

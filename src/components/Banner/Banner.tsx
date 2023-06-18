@@ -1,6 +1,10 @@
 import React from "react";
 
-const Banner = ({ category }) => (
+interface BannerProps {
+  category: string;
+}
+
+const Banner = ({ category }: BannerProps) => (
   <div
     className="mb-16 bg-black px-[1.4rem] py-[1.8rem] text-center
                  md:mb-[7.5rem] md:pb-24 md:pt-[6.5625rem]

@@ -2,7 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useNavbar } from "../../../context/NavbarContext";
 
-const Category = ({ title, image }) => {
+interface CategoryProps {
+  title: string;
+  image: {
+    sm: { width: string };
+    lg: { width: string };
+    src: string;
+    alt: string;
+  };
+}
+
+const Category = ({ title, image }: CategoryProps) => {
   const { menuOpened, toggleMenu } = useNavbar();
 
   const handleLinkClick = () => {
