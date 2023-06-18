@@ -1,6 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+interface ProductProps {
+  slug: string;
+  isNew: boolean;
+  name: string;
+  images: { mobile: string; tablet: string; desktop: string };
+  description: string;
+  category: string;
+  type: "default" | "recommended";
+}
+
 const Product = ({
   slug,
   isNew,
@@ -9,7 +19,7 @@ const Product = ({
   description,
   category,
   type,
-}) => {
+}: ProductProps) => {
   const styles = {
     default: {
       container: "lg:gap-[7.8125rem] odd:lg:flex-row even:lg:flex-row-reverse",
@@ -24,6 +34,7 @@ const Product = ({
       container: "lg:gap-0",
       h2: "text-2xl mt-8 md:mb-1 md:mt-10 md:leading-[2.0625rem] md:tracking-[0.107rem] lg:mx-auto",
       img: "lg:max-w-[21.875rem]",
+      content: null,
     },
   };
 
@@ -44,7 +55,7 @@ const Product = ({
       </picture>
       <div
         className={`flex flex-col items-center gap-6 ${
-          styles[type].content ?? ""
+          styles[type]?.content ?? ""
         }`}
       >
         {isNew && (

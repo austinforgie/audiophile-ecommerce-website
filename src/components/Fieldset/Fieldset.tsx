@@ -1,10 +1,32 @@
 import React from "react";
-import { nanoid } from "nanoid";
 import { FORMAT_CASE } from "../../utilities";
+import { UseFormRegister, FieldValues } from "react-hook-form";
 
-const Fieldset = ({ legend, fields, register, errors }) => {
+interface FieldsetProps {
+  legend: string;
+  fields: {
+    heading?: string;
+    fields?: {
+      label: string;
+      id: string;
+      type: string;
+      name: string;
+      value: string;
+      checked: boolean;
+    }[];
+    label: string;
+    id: string;
+    type: string;
+    name: string;
+    placeholder: string;
+  }[];
+  register: UseFormRegister<FieldValues>;
+  errors: { [name: string]: { message: string } };
+}
+
+const Fieldset = ({ legend, fields, register, errors }: FieldsetProps) => {
   const fieldElements = fields.map(
-    ({ type, heading, fields, id, name, placeholder, label }) => {
+    ({ type, heading, fields = [], id, name, placeholder, label }, index) => {
       switch (type) {
         case "text":
         case "email":
@@ -49,7 +71,7 @@ const Fieldset = ({ legend, fields, register, errors }) => {
 
         case "radioGroup":
           return (
-            <React.Fragment key={() => nanoid()}>
+            <React.Fragment key={index}>
               <h2 className="-mb-2 text-xs font-bold leading-4 tracking-[-0.013rem]">
                 {heading}
               </h2>

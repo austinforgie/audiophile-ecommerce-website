@@ -12,7 +12,7 @@ const Main = () => {
       slug={featured.slug}
       image={featured.image}
       heading={featured.name}
-      description={featured.description}
+      description={featured?.description}
       category={featured.category}
     />
   ));

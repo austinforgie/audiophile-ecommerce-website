@@ -2,7 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Featured.css";
 
-const Featured = ({ slug, image, heading, description, category }) => {
+interface FeaturedProps {
+  slug: string;
+  image: { src: { sm: string; md: string; lg: string }; alt: string };
+  heading: string;
+  description?: string;
+  category: string;
+}
+
+const Featured = ({
+  slug,
+  image,
+  heading,
+  description,
+  category,
+}: FeaturedProps) => {
   let modifier;
   if (heading.includes("ZX9")) {
     modifier = "--dark";

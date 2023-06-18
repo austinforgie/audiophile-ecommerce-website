@@ -1,8 +1,19 @@
 import React from "react";
 import { FORMAT_CURRENCY } from "../../utilities";
 
-const Total = ({ label, amount, type }) => {
-  const styles = {
+interface TotalProps {
+  label: string;
+  amount: number;
+  type: "summary" | "confirmation";
+}
+
+interface Styles {
+  summary: { [key: string]: { amount: string; container: string } };
+  confirmation: { [key: string]: { amount: string; container: string } };
+}
+
+const Total = ({ label, amount, type }: TotalProps) => {
+  const styles: Styles = {
     summary: {
       "Grand Total": { amount: "text-raw-sienna", container: "mb-8 mt-4" },
     },

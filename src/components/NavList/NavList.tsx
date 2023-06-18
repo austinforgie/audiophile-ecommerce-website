@@ -1,7 +1,11 @@
 import React from "react";
 import { nanoid } from "nanoid";
 
-const NavList = ({ items }) => {
+interface NavListProps {
+  items: string[];
+}
+
+const NavList = ({ items }: NavListProps) => {
   const listItemElements = items.map((item) => (
     <li
       key={nanoid()}
