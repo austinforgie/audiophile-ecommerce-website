@@ -6,7 +6,7 @@ import { useNavbar } from "../../../context/NavbarContext";
 import NavList from "../../NavList/NavList";
 
 const Navbar = () => {
-  const items = ["Home", "Headphones", "Speakers", "Headphones"];
+  const items = ["Home", "Headphones", "Speakers", "Earphones"];
 
   const { cartOpened, toggleCart } = useCart();
   const { menuOpened, toggleMenu } = useNavbar();

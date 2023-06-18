@@ -2,7 +2,7 @@ import React from "react";
 import NavList from "../NavList/NavList";
 
 const Footer = () => {
-  const items = ["Home", "Headphones", "Speakers", "Headphones"];
+  const items = ["Home", "Headphones", "Speakers", "Earphones"];
 
   return (
     <div className="bg-cod-gray">
