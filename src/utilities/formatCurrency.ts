@@ -1,4 +1,4 @@
-const FORMAT_CURRENCY = (currency) => {
+const FORMAT_CURRENCY = (currency: number): string => {
   const locales = undefined;
   const options = {
     style: "currency",
