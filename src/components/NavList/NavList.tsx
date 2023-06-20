@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 
 interface NavListProps {
@@ -11,12 +12,12 @@ const NavList = ({ items }: NavListProps) => {
       key={nanoid()}
       className="text-[0.8125rem] font-bold leading-[1.5625rem] tracking-[0.125rem]"
     >
-      <a
+      <Link
         className="text-white hover:text-raw-sienna"
-        href={`/${item !== "Home" ? item.toLowerCase() : ""}`}
+        to={`/${item !== "Home" ? item.toLowerCase() : ""}`}
       >
         {item.toUpperCase()}
-      </a>
+      </Link>
     </li>
   ));
 
