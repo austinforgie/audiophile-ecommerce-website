@@ -1,18 +1,18 @@
 import React from "react";
 import { nanoid } from "nanoid";
 import { FORMAT_CURRENCY, SHORTEN_PRODUCT_NAME } from "../../../utilities";
-import { useCart } from "../../../context/CartContext";
-import { Item } from "../CartModal";
+import { useCart, Cart, CartItem as Item } from "../../../context/CartContext";
 
 export interface CartItemProps {
-  item: Item;
+  item: Item | undefined;
   options: { counter: boolean };
 }
 
 const CartItem = ({ item, options }: CartItemProps) => {
-  const { getItemQuantity, updateItemQuantity } = useCart();
+  const { getItemQuantity, updateItemQuantity }: Cart = useCart();
 
   return (
+    item &&
     Object.keys(item).length !== 0 && (
       <div key={nanoid()} className="flex items-center gap-4">
         <img

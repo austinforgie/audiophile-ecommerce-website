@@ -1,15 +1,35 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, ReactNode } from "react";
 import { CartModal } from "../components";
 
-const CartContext = createContext();
+export interface CartItem {
+  id: number;
+  slug: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+export interface Cart {
+  cartItems: CartItem[];
+  cartOpened: boolean;
+  toggleCart: () => void;
+  addToCart: (product: CartItem, quantity: number) => void;
+  updateItemQuantity: (id: number, amount: number) => void;
+  clearCart: () => void;
+  getCartQuantity: () => number;
+  getCartTotal: () => number;
+  getItemQuantity: (id: number) => number;
+}
+
+const CartContext = createContext<Cart>({} as Cart);
 
 export const useCart = () => useContext(CartContext);
 
-export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [cartOpened, setCartOpened] = useState(false);
 
-  const addToCart = (product, quantity) => {
+  const addToCart = (product: CartItem, quantity: number) => {
     const targetItem = cartItems.find((item) => item.id === product.id);
 
     setCartItems((prevCartItems) => {
@@ -33,7 +53,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const updateItemQuantity = (id, amount) => {
+  const updateItemQuantity = (id: number, amount: number) => {
     const targetItem = cartItems.find((item) => item.id === id);
 
     if (targetItem && targetItem.quantity + amount === 0) {
@@ -71,8 +91,8 @@ export const CartProvider = ({ children }) => {
     );
   };
 
-  const getItemQuantity = (id) =>
-    cartItems.find((item) => item.id === id).quantity;
+  const getItemQuantity = (id: number) =>
+    cartItems.find((item) => item.id === id)?.quantity || 0;
 
   return (
     <CartContext.Provider

@@ -12,7 +12,7 @@ const ConfirmationModal = ({ grandTotal }: ConfirmationModalProps) => {
   const { cartItems, getCartQuantity, getItemQuantity, clearCart } = useCart();
   const FIRST_CART_ITEM = cartItems.slice(0, 1).shift();
   const REMAINING_ITEMS =
-    getCartQuantity() - getItemQuantity(FIRST_CART_ITEM.id);
+    getCartQuantity() - getItemQuantity(FIRST_CART_ITEM?.id || 0);
 
   return (
     <aside className="fixed top-0 z-50 flex h-screen w-full flex-col justify-center bg-black bg-opacity-40 px-6">

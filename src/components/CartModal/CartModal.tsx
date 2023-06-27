@@ -1,17 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useCart } from "../../context/CartContext";
+import { useCart, Cart, CartItem as Item } from "../../context/CartContext";
 import { CartItem } from "./CartItem";
 import { nanoid } from "nanoid";
 import { FORMAT_CURRENCY } from "../../utilities";
-
-export interface Item {
-  id: number;
-  slug: string;
-  name: string;
-  price: number;
-  quantity: number;
-}
 
 const CartModal = () => {
   const {
@@ -21,7 +13,7 @@ const CartModal = () => {
     getCartTotal,
     cartOpened,
     toggleCart,
-  } = useCart();
+  }: Cart = useCart();
 
   const cartItemElements = cartItems.map((item: Item) => (
     <CartItem key={nanoid()} item={item} options={{ counter: true }} />
