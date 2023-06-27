@@ -1,6 +1,6 @@
 import React from "react";
 import { FORMAT_CASE } from "../../utilities";
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import { UseFormRegister, FieldValues, FieldErrors } from "react-hook-form";
 
 interface FieldsetProps {
   legend: string;
@@ -14,19 +14,22 @@ interface FieldsetProps {
       value: string;
       checked: boolean;
     }[];
-    label: string;
-    id: string;
+    label?: string;
+    id?: string;
     type: string;
-    name: string;
-    placeholder: string;
+    name?: string;
+    placeholder?: string;
   }[];
   register: UseFormRegister<FieldValues>;
-  errors: { [name: string]: { message: string } };
+  errors: FieldErrors<FieldValues>;
 }
 
 const Fieldset = ({ legend, fields, register, errors }: FieldsetProps) => {
   const fieldElements = fields.map(
-    ({ type, heading, fields = [], id, name, placeholder, label }, index) => {
+    (
+      { type, heading, fields = [], id, name = "", placeholder, label },
+      index
+    ) => {
       switch (type) {
         case "text":
         case "email":
@@ -46,7 +49,7 @@ const Fieldset = ({ legend, fields, register, errors }: FieldsetProps) => {
                 </label>
                 {errors[name] && (
                   <span className="font-medium text-persian-red" role="alert">
-                    {FORMAT_CASE(errors[name].message, "sentence")}
+                    {FORMAT_CASE(String(errors[name]?.message), "sentence")}
                   </span>
                 )}
               </div>

@@ -7,6 +7,10 @@ import productData from "../../data/products";
 import { useCart } from "../../context/CartContext";
 import { FORMAT_CURRENCY, FORMAT_CASE } from "../../utilities";
 
+interface Styles {
+  [key: string]: { picture?: string; img?: string };
+}
+
 const ProductDetail = () => {
   const { addToCart } = useCart();
   const INITIAL_QUANTITY = 1;
@@ -24,7 +28,7 @@ const ProductDetail = () => {
 
   useScrollToTop();
 
-  const updateQuantity = (amount) => {
+  const updateQuantity = (amount: number) => {
     setQuantity((prevQuantity) =>
       prevQuantity + amount > INITIAL_QUANTITY
         ? prevQuantity + amount
@@ -34,7 +38,7 @@ const ProductDetail = () => {
 
   const galleryImages = Object.entries(targetProduct.gallery).map(
     ([index, screenType]) => {
-      const styles = {
+      const styles: Styles = {
         first: { img: "h-full" },
         second: { picture: "md:row-start-2", img: "h-full" },
         third: { picture: "md:col-start-2 md:row-span-full" },
@@ -60,7 +64,8 @@ const ProductDetail = () => {
   const recommendedProducts = targetProduct.others.map((product) => {
     const images = { ...product.image };
     Object.keys(images).forEach((screenType) => {
-      images[screenType] = images[screenType].slice(1);
+      images[screenType as keyof typeof images] =
+        images[screenType as keyof typeof images].slice(1);
     });
 
     return (
@@ -131,7 +136,7 @@ const ProductDetail = () => {
               {targetProduct.new && (
                 <div
                   className="mt-8 text-sm font-normal uppercase leading-relaxed tracking-[0.625rem] text-raw-sienna
-                               md:mt-0 md:text-xs md:leading-4 md:tracking-[0.54rem]"
+                               md:mb-2 md:mt-0 md:text-xs md:leading-4 md:tracking-[0.54rem]"
                 >
                   New Product
                 </div>
@@ -169,7 +174,9 @@ const ProductDetail = () => {
                 </div>
                 <button
                   className="btn bg-raw-sienna text-white hover:bg-hit-pink"
-                  onClick={() => addToCart(targetProduct, quantity)}
+                  onClick={() =>
+                    addToCart({ ...targetProduct, quantity }, quantity)
+                  }
                 >
                   Add to cart
                 </button>

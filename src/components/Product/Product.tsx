@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 interface ProductProps {
   slug: string;
-  isNew: boolean;
+  isNew?: boolean;
   name: string;
   images: { mobile: string; tablet: string; desktop: string };
-  description: string;
+  description?: string;
   category: string;
   type: "default" | "recommended";
 }
