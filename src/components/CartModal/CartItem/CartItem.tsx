@@ -1,7 +1,7 @@
-import React from "react";
 import { nanoid } from "nanoid";
 import { FORMAT_CURRENCY, SHORTEN_PRODUCT_NAME } from "../../../utilities";
 import { useCart, Cart, CartItem as Item } from "../../../context/CartContext";
+import { QuantityButton } from "./QuantityButton";
 
 export interface CartItemProps {
   item: Item | undefined;
@@ -9,11 +9,10 @@ export interface CartItemProps {
 }
 
 const CartItem = ({ item, options }: CartItemProps) => {
-  const { getItemQuantity, updateItemQuantity }: Cart = useCart();
+  const { getItemQuantity }: Cart = useCart();
 
   return (
-    item &&
-    Object.keys(item).length !== 0 && (
+    item && (
       <div key={nanoid()} className="flex items-center gap-4">
         <img
           className="rounded-lg"
@@ -24,8 +23,9 @@ const CartItem = ({ item, options }: CartItemProps) => {
         />
         <div>
           <div
-            className="text-[0.9375rem] font-bold leading-[1.5625rem]
-                         md:mr-[1.3125rem]"
+            className={`
+              text-[0.9375rem] font-bold leading-[1.5625rem]
+              md:mr-[1.3125rem]`}
           >
             {SHORTEN_PRODUCT_NAME(item)}
           </div>
@@ -35,28 +35,25 @@ const CartItem = ({ item, options }: CartItemProps) => {
         </div>
         {options.counter ? (
           <div className="ml-auto flex h-8 items-center justify-evenly bg-[#f1f1f1]">
-            <button
-              className="border-none px-3.5 font-bold opacity-25 hover:text-raw-sienna hover:opacity-100"
-              onClick={() => {
-                updateItemQuantity(item.id, -1);
-              }}
-            >
-              -
-            </button>
+            <QuantityButton
+              label="-"
+              itemId={item.id}
+              quantity={-1}
+            ></QuantityButton>
             <div className="w-6 text-center text-[0.8125rem] font-bold">
               {getItemQuantity(item.id)}
             </div>
-            <button
-              className="border-none px-3.5 font-bold opacity-25 hover:text-raw-sienna hover:opacity-100"
-              onClick={() => updateItemQuantity(item.id, 1)}
-            >
-              +
-            </button>
+            <QuantityButton
+              label="+"
+              itemId={item.id}
+              quantity={1}
+            ></QuantityButton>
           </div>
         ) : (
           <div
-            className="mb-auto ml-auto mt-[0.45rem] text-base font-bold leading-6 opacity-50
-                         md:mt-0"
+            className={`
+              mb-auto ml-auto mt-[0.45rem] text-base font-bold leading-6 opacity-50
+              md:mt-0`}
           >
             {`x${getItemQuantity(item.id)}`}
           </div>
