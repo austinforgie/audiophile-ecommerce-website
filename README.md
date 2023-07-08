@@ -38,6 +38,7 @@ You may also see any lint errors in the console.
 
 ## 🛠️ Built With
 
+* [TypeScript](https://www.typescriptlang.org/) - Strongly Typed Language
 * [React](https://react.dev/) - JavaScript Library
 * [React Hook Form](https://react-hook-form.com/) - Forms Library
 * React Context API

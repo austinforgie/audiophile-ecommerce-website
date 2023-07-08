@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { nanoid } from "nanoid";
 
@@ -23,8 +22,9 @@ const NavList = ({ items }: NavListProps) => {
 
   return (
     <ul
-      className="flex flex-col gap-4
-                   md:flex-row md:gap-[2.125rem]"
+      className={`
+        flex flex-col gap-4
+        md:flex-row md:gap-[2.125rem]`}
     >
       {listItemElements}
     </ul>

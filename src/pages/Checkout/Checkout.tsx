@@ -13,7 +13,8 @@ const Checkout = () => {
   const navigate = useNavigate();
   const { cartItems, getCartTotal } = useCart();
   const SHIPPING = 50;
-  const VAT = getCartTotal() * 0.2;
+  const VAT_RATE = 0.2;
+  const VAT = getCartTotal() * VAT_RATE;
   const GRAND_TOTAL = getCartTotal() + SHIPPING;
 
   const {
@@ -45,38 +46,45 @@ const Checkout = () => {
       {formSubmitted && <ConfirmationModal grandTotal={GRAND_TOTAL} />}
       <div className="bg-alabaster">
         <main
-          className="gap-0 pb-24
-                       md:max-w-[50rem] md:pb-[7.25rem] md:pt-8
-                         lg:max-w-[69.375rem] lg:px-0 lg:pb-[8.8125rem] lg:pt-[4.9375rem]"
+          className={`
+            gap-0 pb-24
+            md:max-w-[50rem] md:pb-[7.25rem] md:pt-8
+            lg:max-w-[69.375rem] lg:px-0 lg:pb-[8.8125rem] lg:pt-[4.9375rem]`}
         >
           <button
-            className="mb-6 mt-4 self-start text-base font-medium leading-relaxed opacity-50 hover:underline
-                         lg:mb-[2.375rem]"
+            type="button"
+            className={`
+              mb-6 mt-4 self-start text-base font-medium leading-relaxed opacity-50 hover:underline
+              lg:mb-[2.375rem]`}
             onClick={() => navigate(-1)}
           >
             Go Back
           </button>
           <form
-            className="flex flex-col gap-8
-                         lg:flex-row lg:justify-center"
+            className={`
+              flex flex-col gap-8
+              lg:flex-row lg:justify-center`}
             onSubmit={handleSubmit(onSubmit)}
           >
             <section
-              className="py- flex flex-col gap-8 rounded-lg bg-white px-6 py-8
-                           md:gap-[3.3125rem]
-                             lg:w-[45.625rem] lg:px-12 lg:pb-12 lg:pt-[3.375rem]"
+              className={`
+                py- flex flex-col gap-8 rounded-lg bg-white px-6 py-8
+                md:gap-[3.3125rem]
+                lg:w-[45.625rem] lg:px-12 lg:pb-12 lg:pt-[3.375rem]`}
             >
               <h1
-                className="text-[1.75rem] font-bold uppercase leading-[2.375rem] tracking-[0.0625rem]
-                             md:text-[2rem]"
+                className={`
+                  text-[1.75rem] font-bold uppercase leading-[2.375rem] tracking-[0.0625rem]
+                  md:text-[2rem]`}
               >
                 Checkout
               </h1>
               {fieldsetElements}
             </section>
             <section
-              className="mb-auto rounded-lg bg-white px-6 py-8
-                           lg:w-[21.875rem]"
+              className={`
+                mb-auto rounded-lg bg-white px-6 py-8
+                lg:w-[21.875rem]`}
             >
               <h2 className="text-lg font-bold uppercase leading-6 tracking-wider">
                 Summary

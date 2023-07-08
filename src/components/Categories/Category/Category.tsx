@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useNavbar } from "../../../context/NavbarContext";
 
@@ -29,13 +28,17 @@ const Category = ({ title, image }: CategoryProps) => {
         className={"relative rounded-lg bg-seashell pb-[1.3rem] pt-[5.1rem]"}
       >
         <img
-          className={`absolute inset-x-0 top-[-3.125rem] mx-auto lg:top-[-4.375rem] ${image.sm.width} ${image.lg.width}`}
+          className={`
+            absolute inset-x-0 top-[-3.125rem] mx-auto 
+            lg:top-[-4.375rem] 
+            ${image.sm.width} ${image.lg.width}`}
           src={image.src}
           alt={image.alt}
         />
         <h2
-          className="my-[0.65rem] text-[0.94rem] font-bold leading-5 tracking-[0.067rem]
-                       lg:mt-10 lg:text-lg"
+          className={`
+            my-[0.65rem] text-[0.94rem] font-bold leading-5 tracking-[0.067rem]
+            lg:mt-10 lg:text-lg`}
         >
           {title}
         </h2>

@@ -1,4 +1,3 @@
-import React from "react";
 import { nanoid } from "nanoid";
 import { Categories } from "../Categories";
 import { Featured } from "./Featured";
@@ -21,9 +20,10 @@ const Main = () => {
     <main>
       <Categories />
       <section
-        className="flex flex-col gap-6
-                     md:gap-8
-                       lg:gap-12"
+        className={`
+          flex flex-col gap-6
+          md:gap-8
+          lg:gap-12`}
       >
         {featuredElements}
       </section>

@@ -7,7 +7,7 @@ const FORMAT_CASE = (str: string, caseType: string): string => {
 
   switch (caseType) {
     case "start":
-      return words.map((word) => capitalize(word)).join(" ");
+      return words.map(capitalize).join(" ");
 
     case "sentence":
       return words

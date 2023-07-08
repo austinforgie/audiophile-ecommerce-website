@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./Featured.css";
 
@@ -12,7 +11,10 @@ interface FeaturedProps {
 
 const Featured = ({
   slug,
-  image,
+  image: {
+    src: { sm, md, lg },
+    alt,
+  },
   heading,
   description,
   category,
@@ -27,12 +29,12 @@ const Featured = ({
   return (
     <div className={`Featured__${slug} rounded-lg`}>
       <picture className="Featured__picture">
-        <source media="(min-width: 1440px)" srcSet={image.src.lg} />
-        <source media="(min-width: 768px)" srcSet={image.src.md} />
+        <source media="(min-width: 1440px)" srcSet={lg} />
+        <source media="(min-width: 768px)" srcSet={md} />
         <img
           className={`Featured__${slug}-image rounded-lg`}
-          src={image.src.sm}
-          alt={image.alt}
+          src={sm}
+          alt={alt}
         />
       </picture>
 
@@ -46,8 +48,9 @@ const Featured = ({
           <p className={`Featured__${slug}-description`}>{description}</p>
         )}
         <Link
-          className={`Featured__link${modifier} btn
-                      lg:mr-auto`}
+          className={`
+            Featured__link${modifier} btn
+            lg:mr-auto`}
           to={`${category}/${slug}`}
         >
           See Product

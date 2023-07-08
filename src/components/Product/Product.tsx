@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 interface ProductProps {
@@ -40,9 +39,10 @@ const Product = ({
 
   return (
     <div
-      className={`flex flex-col items-center
-                  lg:text-left
-                  ${styles[type].container}`}
+      className={`
+        flex flex-col items-center
+        lg:text-left
+        ${styles[type].container}`}
     >
       <picture>
         <source media="(min-width: 1440px)" srcSet={images.desktop} />
@@ -54,36 +54,40 @@ const Product = ({
         />
       </picture>
       <div
-        className={`flex flex-col items-center gap-6 ${
-          styles[type]?.content ?? ""
-        }`}
+        className={`
+          flex flex-col items-center gap-6 
+          ${styles[type]?.content ?? ""}`}
       >
         {isNew && (
           <div
-            className="mt-8 text-[0.88rem] font-normal uppercase tracking-[0.625rem] text-raw-sienna
-                         md:-mb-10 md:mt-12
-                           lg:mr-auto lg:mt-0"
+            className={`
+              mt-8 text-[0.88rem] font-normal uppercase tracking-[0.625rem] text-raw-sienna
+              md:-mb-10 md:mt-12
+              lg:mr-auto lg:mt-0`}
           >
             New Product
           </div>
         )}
         <h2
-          className={`${styles[type].h2} font-bold uppercase
-                      lg:mr-auto`}
+          className={`
+            ${styles[type].h2} font-bold uppercase
+            lg:mr-auto`}
         >
           {name}
         </h2>
         {description && (
           <p
-            className="text-[0.9375rem] font-medium leading-relaxed opacity-50
-                         md:max-w-[35rem]"
+            className={`
+              text-[0.9375rem] font-medium leading-relaxed opacity-50
+              md:max-w-[35rem]`}
           >
             {description}
           </p>
         )}
         <Link
-          className="btn bg-raw-sienna text-white hover:bg-hit-pink
-                       lg:mr-auto"
+          className={`
+            btn bg-raw-sienna text-white hover:bg-hit-pink
+            lg:mr-auto`}
           to={`/${category}/${slug}`}
         >
           See Product

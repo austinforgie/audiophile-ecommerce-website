@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../../context/CartContext";
 import { Categories } from "../../Categories";
@@ -23,13 +22,15 @@ const Navbar = () => {
     <>
       {menuOpened && (
         <aside
-          className="fixed top-[5.625rem] z-50 h-full w-full bg-black bg-opacity-40
-                       lg:hidden"
+          className={`
+            fixed top-[5.625rem] z-50 h-full w-full bg-black bg-opacity-40
+            lg:hidden`}
         >
           <div
             role="dialog"
-            className="mx-auto rounded-b-lg bg-white px-7 pb-[1.9375rem] pt-20
-                         md:px-10 md:pb-[4.1875rem] md:pt-16"
+            className={`
+              mx-auto rounded-b-lg bg-white px-7 pb-[1.9375rem] pt-20
+              md:px-10 md:pb-[4.1875rem] md:pt-16`}
           >
             <Categories />
           </div>
@@ -37,13 +38,15 @@ const Navbar = () => {
       )}
       <div className="sticky top-0 z-50 bg-black">
         <nav
-          className="mx-auto px-[1.4rem] py-[2rem] text-white
-                       md:max-w-[58.5rem] md:px-[2.5rem]
-                         lg:max-w-[69.375rem] lg:px-0 lg:py-[2.1875rem]"
+          className={`
+            mx-auto px-[1.4rem] py-[2rem] text-white
+            md:max-w-[58.5rem] md:px-[2.5rem]
+            lg:max-w-[69.375rem] lg:px-0 lg:py-[2.1875rem]`}
         >
           <ul className="flex list-none items-center justify-between">
             <li className="lg:hidden">
               <button
+                type="button"
                 onClick={handleMenuClick}
                 className="border-none bg-transparent"
               >
@@ -56,8 +59,9 @@ const Navbar = () => {
               </button>
             </li>
             <li
-              className="md:ml-[2.625rem] md:mr-auto
-                           lg:m-0"
+              className={`
+                md:ml-[2.625rem] md:mr-auto
+                lg:m-0`}
             >
               <Link to={"/"}>
                 <img
@@ -69,13 +73,15 @@ const Navbar = () => {
               </Link>
             </li>
             <li
-              className="hidden
-                           lg:mr-auto lg:block lg:pl-[12.3125rem]"
+              className={`
+                hidden
+                lg:mr-auto lg:block lg:pl-[12.3125rem]`}
             >
               <NavList items={items} />
             </li>
             <li>
               <button
+                type="button"
                 className="border-none bg-transparent"
                 onClick={handleCartClick}
               >

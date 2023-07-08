@@ -1,6 +1,10 @@
-const SHORTEN_PRODUCT_NAME = (product: { name: string }): string => {
-  const lastIndex = product.name.lastIndexOf(" ");
-  let parsedName = product.name.substring(0, lastIndex);
+interface Product {
+  name: string;
+}
+
+const SHORTEN_PRODUCT_NAME = ({ name }: Product): string => {
+  const lastIndex = name.lastIndexOf(" ");
+  let parsedName = name.substring(0, lastIndex);
 
   parsedName = parsedName
     .replace(/Mark/g, "MK")

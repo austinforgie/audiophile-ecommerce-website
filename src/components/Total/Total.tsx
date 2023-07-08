@@ -1,4 +1,3 @@
-import React from "react";
 import { FORMAT_CURRENCY } from "../../utilities";
 
 interface TotalProps {
@@ -29,19 +28,19 @@ const Total = ({ label, amount, type }: TotalProps) => {
     <div
       className={`${
         styles[type][label]?.container ?? "text-black"
-      } flex justify-between`}
+        } flex justify-between`}
     >
       <div
         className={`${
           type === "summary" || "text-white"
-        } text-[0.9375rem] font-medium uppercase leading-[1.5625rem] opacity-50`}
+          } text-[0.9375rem] font-medium uppercase leading-[1.5625rem] opacity-50`}
       >
         {label}
       </div>
       <div
         className={`text-lg font-bold uppercase leading-[1.5625rem] ${
           styles[type][label]?.amount ?? ""
-        }`}
+          }`}
       >
         {FORMAT_CURRENCY(amount)}
       </div>

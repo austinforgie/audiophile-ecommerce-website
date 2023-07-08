@@ -1,4 +1,3 @@
-import React from "react";
 import { Header, Main, Footer } from "../../components";
 import useScrollToTop from "../../hooks/useScrollToTop";
 

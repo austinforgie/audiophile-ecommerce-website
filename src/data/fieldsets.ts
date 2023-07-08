@@ -84,7 +84,7 @@ const fieldsets = [
         ],
       },
       {
-        label: "e-Money number",
+        label: "e-Money Number",
         id: "e-money-number-input",
         type: "text",
         name: "eMoneyNumber",

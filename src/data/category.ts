@@ -1,5 +1,6 @@
 const categories = [
   {
+    id: 1,
     title: "Headphones",
     image: {
       sm: { width: "w-[9rem]" },
@@ -9,6 +10,7 @@ const categories = [
     },
   },
   {
+    id: 2,
     title: "Speakers",
     image: {
       sm: { width: "w-[9.5rem]" },
@@ -18,6 +20,7 @@ const categories = [
     },
   },
   {
+    id: 3,
     title: "Earphones",
     image: {
       sm: { width: "w-[11.5rem]" },

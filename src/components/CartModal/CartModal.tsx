@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useCart, Cart, CartItem as Item } from "../../context/CartContext";
 import { CartItem } from "./CartItem";
@@ -19,24 +18,32 @@ const CartModal = () => {
     <CartItem key={nanoid()} item={item} options={{ counter: true }} />
   ));
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Enter") toggleCart();
+  };
+
   return (
     cartOpened && (
       <aside
-        className="fixed top-[5.2rem] h-full w-full bg-black bg-opacity-40 px-6 pt-6
-                     md:pr-10 md:pt-8
-                       lg:px-0 lg:pt-10"
+        className={`
+          fixed top-[5.2rem] h-full w-full bg-black bg-opacity-40 px-6 pt-6
+          md:pr-10 md:pt-8
+          lg:px-0 lg:pt-10`}
         onClick={toggleCart}
       >
         <div
-          className="mx-auto
-                       md:max-w-[54rem]
-                         lg:max-w-[69.375rem]"
+          className={`
+            mx-auto
+            md:max-w-[54rem]
+            lg:max-w-[69.375rem]`}
         >
           <div
             role="dialog"
-            className="mx-auto max-w-[20.4375rem] rounded-lg bg-white px-7 pb-[1.9375rem] pt-8
-                         md:ml-auto md:mr-0 md:max-w-[23.5625rem]"
+            className={`
+              mx-auto max-w-[20.4375rem] rounded-lg bg-white px-7 pb-[1.9375rem] pt-8
+              md:ml-auto md:mr-0 md:max-w-[23.5625rem]`}
             onClick={(event) => event.stopPropagation()}
+            onKeyDown={handleKeyDown}
           >
             {getCartQuantity() > 0 ? (
               <div>
@@ -45,6 +52,7 @@ const CartModal = () => {
                     Cart ({getCartQuantity()})
                   </div>
                   <button
+                    type="button"
                     className="border-none bg-transparent font-['Manrope'] text-[0.9375rem] font-medium leading-[1.5625rem] opacity-50 hover:underline"
                     onClick={clearCart}
                   >

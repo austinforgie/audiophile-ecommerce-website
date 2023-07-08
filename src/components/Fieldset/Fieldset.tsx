@@ -116,8 +116,9 @@ const Fieldset = ({ legend, fields, register, errors }: FieldsetProps) => {
         {legend}
       </legend>
       <div
-        className="flex flex-col gap-6
-                     md:grid md:grid-cols-2 md:gap-x-4 md:gap-y-6"
+        className={`
+          flex flex-col gap-6
+          md:grid md:grid-cols-2 md:gap-x-4 md:gap-y-6`}
       >
         {fieldElements}
       </div>
